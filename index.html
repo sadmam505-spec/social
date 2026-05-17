@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>Creator Rewards - Premium Dashboard</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+		<style>
+			* { box-sizing: border-box; }
+
+			body {
+			background-color: #000;
+			color: #fff;
+			font-family: 'Inter', sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			overflow: hidden;
+			}
+
+			.phone-container {
+			width: 100%;
+			height: 100%;
+			max-width: 400px;
+			background-color: #000;
+			border: 2px solid #222;
+			border-radius: 30px;
+			overflow-y: auto;
+			display: flex;
+			flex-direction: column;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+			padding: 20px 16px;
+			}
+
+			/* Custom Premium Scrollbar for the Dashboard */
+			.phone-container::-webkit-scrollbar {
+			width: 4px;
+			}
+			.phone-container::-webkit-scrollbar-thumb {
+			background: #222;
+			border-radius: 10px;
+			}
+
+			/* ==========================================================================
+			1. PREMIUM HEADER STATION
+			========================================================================== */
+			.header-station {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			margin-bottom: 20px;
+			padding: 5px;
+			}
+
+			.back-link {
+			color: #f39c12;
+			font-size: 1.2rem;
+			text-decoration: none;
+			width: 40px;
+			transition: transform 0.1s;
+			}
+			.back-link:active { transform: scale(0.9); }
+
+			.header-title-block {
+			flex: 1;
+			text-align: center;
+			margin-right: 40px; /* To perfectly center the title balance */
+			}
+
+			.header-title-block h1 {
+			margin: 0;
+			font-size: 1.25rem;
+			font-weight: 800;
+			letter-spacing: 1px;
+			background: linear-gradient(45deg, #fff, #888);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-transform: uppercase;
+			}
+
+			.header-title-block p {
+			margin: 4px 0 0 0;
+			font-size: 0.75rem;
+			color: #666;
+			font-weight: 500;
+			}
+
+			/* ==========================================================================
+			2. TASKS CONTAINER & CARDS (The Main Grid Engine)
+			========================================================================== */
+			.tasks-container {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin-bottom: 25px;
+			}
+
+			.task-card {
+			position: relative;
+			background: #0a0a0a;
+			border: 1px solid #1a1a1a;
+			border-radius: 16px;
+			padding: 16px;
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			transition: border-color 0.3s ease;
+			}
+
+			/* Task Card Top Layout Split */
+			.task-card-main {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			}
+
+			/* Left Block: Glowing Brand Logos */
+			.brand-logo-frame {
+			width: 44px;
+			height: 44px;
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.4rem;
+			}
+
+			/* Brand Custom Colors */
+			.fb-theme { background: rgba(24, 119, 242, 0.1); color: #1877f2; border: 1px solid rgba(24, 119, 242, 0.15); }
+			.tt-theme { background: rgba(0, 0, 0, 1); color: #00f2fe; border: 1px solid #ff007f; }
+			.yt-theme { background: rgba(255, 0, 0, 0.1); color: #ff0000; border: 1px solid rgba(255, 0, 0, 0.15); }
+
+			/* Middle Block: Headlines */
+			.task-meta-info {
+			flex: 1;
+			padding: 0 14px;
+			}
+
+			.task-meta-info h2 {
+			margin: 0;
+			font-size: 0.9rem;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			color: #ffffff;
+			}
+
+			.task-meta-info p {
+			margin: 4px 0 0 0;
+			font-size: 0.7rem;
+			color: #555;
+			font-weight: 600;
+			}
+
+			/* Right Block: Highlighted Points & Up To Text */
+			.points-badge {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			font-size: 0.85rem;
+			font-weight: 800;
+			background: linear-gradient(135deg, #ffe066 0%, #f39c12 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: 0.5px;
+			text-align: right;
+			}
+
+			.up-to-text {
+			font-size: 0.6rem;
+			font-weight: 700;
+			color: #555;
+			-webkit-text-fill-color: #555; /* Gradient text ক্যানসেল করার জন্য */
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			margin-bottom: 2px;
+			}
+
+			/* Bottom Action Row Buttons */
+			.task-action-row {
+			display: flex;
+			gap: 10px;
+			width: 100%;
+			}
+
+			.task-btn {
+			flex: 1;
+			padding: 10px 12px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			border-radius: 10px;
+			cursor: pointer;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 6px;
+			transition: all 0.2s ease;
+			}
+
+			.btn-details {
+			background: #111;
+			color: #aaa;
+			border: 1px solid #222;
+			}
+			.btn-details:active { background: #161616; transform: scale(0.97); }
+
+			.btn-submit {
+			background: #fff;
+			color: #000;
+			border: none;
+			}
+			.btn-submit:active { opacity: 0.8; transform: scale(0.97); }
+
+			/* Dynamic States (Used later for JS) */
+			.status-badge-pending {
+			position: absolute;
+			top: -8px;
+			left: 16px;
+			background: #f39c12;
+			color: #000;
+			font-size: 0.65rem;
+			font-weight: 800;
+			padding: 3px 10px;
+			border-radius: 20px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
+			}
+
+			.task-card.is-pending {
+			border-color: rgba(243, 156, 18, 0.2);
+			opacity: 0.4;
+			}
+
+			.task-card.is-pending .task-btn {
+			background: #0d0d0d;
+			color: #333 !important;
+			border: 1px solid #151515 !important;
+			cursor: not-allowed;
+			pointer-events: none;
+			box-shadow: none;
+			}
+
+			/* ==========================================================================
+			3. REFERRAL MILESTONE SECTION
+			========================================================================== */
+			.referral-section {
+			background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+			border: 1px solid #1a1a1a;
+			border-radius: 20px;
+			padding: 20px 16px;
+			margin-bottom: 10px;
+			}
+
+			.ref-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 14px;
+			}
+
+			.ref-title h3 {
+			margin: 0;
+			font-size: 0.95rem;
+			font-weight: 800;
+			letter-spacing: 0.5px;
+			color: #fff;
+			}
+
+			.ref-title p {
+			margin: 4px 0 0 0;
+			font-size: 0.7rem;
+			color: #666;
+			line-height: 1.3;
+			}
+
+			.ref-points {
+			font-size: 0.9rem;
+			font-weight: 900;
+			color: #2ec4b6;
+			letter-spacing: 0.5px;
+			}
+
+			.progress-container {
+			width: 100%;
+			background: #111;
+			border: 1px solid #222;
+			height: 12px;
+			border-radius: 20px;
+			overflow: hidden;
+			position: relative;
+			margin-top: 15px;
+			}
+
+			.progress-bar {
+			height: 100%;
+			width: 0%;
+			background: linear-gradient(90deg, #2ec4b6, #208b81);
+			border-radius: 20px;
+			}
+
+			.progress-stats {
+			display: flex;
+			justify-content: space-between;
+			font-size: 0.7rem;
+			color: #555;
+			font-weight: 700;
+			margin-top: 8px;
+			}
+			.progress-stats span b { color: #2ec4b6; }
+		</style>
+	</head>
+	<body>
+
+		<div class="phone-container">
+
+			<div class="header-station">
+				<a href="index.html" class="back-link">
+					<i class="fa-solid fa-arrow-left"></i>
+				</a>
+				<div class="header-title-block">
+					<h1>Creator Rewards</h1>
+					<p>Monetize your content instantly</p>
+				</div>
+			</div>
+
+			<div class="tasks-container">
+
+				<div class="task-card">
+					<div class="task-card-main">
+						<div class="brand-logo-frame fb-theme">
+							<i class="fa-brands fa-facebook-f"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>FACEBOOK POST</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+15,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card">
+					<div class="task-card-main">
+						<div class="brand-logo-frame fb-theme">
+							<i class="fa-solid fa-film"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>FACEBOOK REEL</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+25,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card">
+					<div class="task-card-main">
+						<div class="brand-logo-frame tt-theme">
+							<i class="fa-brands fa-tiktok"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>TIKTOK VIDEO</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+25,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card">
+					<div class="task-card-main">
+						<div class="brand-logo-frame yt-theme">
+							<i class="fa-solid fa-bolt"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>YOUTUBE SHORTS</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+25,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card">
+					<div class="task-card-main">
+						<div class="brand-logo-frame yt-theme">
+							<i class="fa-brands fa-youtube"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>YOUTUBE LONG VIDEO</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+40,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="referral-section">
+				<div class="ref-header">
+					<div class="ref-title">
+						<h3>ELITE REFERRAL MILESTONE</h3>
+						<p>Get 10 referrals to make their 1st successful withdrawal to trigger this bonus.</p>
+					</div>
+					<div class="ref-points">+50,000 PTS</div>
+				</div>
+
+				<div class="progress-container">
+					<div class="progress-bar"></div>
+				</div>
+				<div class="progress-stats">
+					<span>Progress Tracker</span>
+					<span>
+						<b>0</b> / 10 Confirmed
+					</span>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>
