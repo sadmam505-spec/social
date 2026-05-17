@@ -67,17 +67,16 @@
 			.header-title-block {
 			flex: 1;
 			text-align: center;
-			margin-right: 40px; /* To perfectly center the title balance */
+			margin-right: 40px; /* To perfectly center the title */
 			}
 
 			.header-title-block h1 {
 			margin: 0;
-			font-size: 1.25rem;
-			font-weight: 800;
+			font-size: 1.3rem;
+			font-weight: 850;
 			letter-spacing: 1px;
-			background: linear-gradient(45deg, #fff, #888);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
+			/* [CHANGED] ফ্রন্ট কালার ব্র্যান্ড গোল্ডেন-অরেঞ্জে সেট করা হলো */
+			color: #f39c12;
 			text-transform: uppercase;
 			}
 
@@ -89,172 +88,14 @@
 			}
 
 			/* ==========================================================================
-			2. TASKS CONTAINER & CARDS (The Main Grid Engine)
-			========================================================================== */
-			.tasks-container {
-			display: flex;
-			flex-direction: column;
-			gap: 16px;
-			margin-bottom: 25px;
-			}
-
-			.task-card {
-			position: relative;
-			background: #0a0a0a;
-			border: 1px solid #1a1a1a;
-			border-radius: 16px;
-			padding: 16px;
-			display: flex;
-			flex-direction: column;
-			gap: 14px;
-			transition: border-color 0.3s ease;
-			}
-
-			/* Task Card Top Layout Split */
-			.task-card-main {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			width: 100%;
-			}
-
-			/* Left Block: Glowing Brand Logos */
-			.brand-logo-frame {
-			width: 44px;
-			height: 44px;
-			border-radius: 12px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 1.4rem;
-			}
-
-			/* Brand Custom Colors */
-			.fb-theme { background: rgba(24, 119, 242, 0.1); color: #1877f2; border: 1px solid rgba(24, 119, 242, 0.15); }
-			.tt-theme { background: rgba(0, 0, 0, 1); color: #00f2fe; border: 1px solid #ff007f; }
-			.yt-theme { background: rgba(255, 0, 0, 0.1); color: #ff0000; border: 1px solid rgba(255, 0, 0, 0.15); }
-
-			/* Middle Block: Headlines */
-			.task-meta-info {
-			flex: 1;
-			padding: 0 14px;
-			}
-
-			.task-meta-info h2 {
-			margin: 0;
-			font-size: 0.9rem;
-			font-weight: 700;
-			letter-spacing: 0.5px;
-			color: #ffffff;
-			}
-
-			.task-meta-info p {
-			margin: 4px 0 0 0;
-			font-size: 0.7rem;
-			color: #555;
-			font-weight: 600;
-			}
-
-			/* Right Block: Highlighted Points & Up To Text */
-			.points-badge {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-end;
-			font-size: 0.85rem;
-			font-weight: 800;
-			background: linear-gradient(135deg, #ffe066 0%, #f39c12 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			letter-spacing: 0.5px;
-			text-align: right;
-			}
-
-			.up-to-text {
-			font-size: 0.6rem;
-			font-weight: 700;
-			color: #555;
-			-webkit-text-fill-color: #555; /* Gradient text ক্যানসেল করার জন্য */
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			margin-bottom: 2px;
-			}
-
-			/* Bottom Action Row Buttons */
-			.task-action-row {
-			display: flex;
-			gap: 10px;
-			width: 100%;
-			}
-
-			.task-btn {
-			flex: 1;
-			padding: 10px 12px;
-			font-size: 0.75rem;
-			font-weight: 700;
-			border-radius: 10px;
-			cursor: pointer;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 6px;
-			transition: all 0.2s ease;
-			}
-
-			.btn-details {
-			background: #111;
-			color: #aaa;
-			border: 1px solid #222;
-			}
-			.btn-details:active { background: #161616; transform: scale(0.97); }
-
-			.btn-submit {
-			background: #fff;
-			color: #000;
-			border: none;
-			}
-			.btn-submit:active { opacity: 0.8; transform: scale(0.97); }
-
-			/* Dynamic States (Used later for JS) */
-			.status-badge-pending {
-			position: absolute;
-			top: -8px;
-			left: 16px;
-			background: #f39c12;
-			color: #000;
-			font-size: 0.65rem;
-			font-weight: 800;
-			padding: 3px 10px;
-			border-radius: 20px;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
-			}
-
-			.task-card.is-pending {
-			border-color: rgba(243, 156, 18, 0.2);
-			opacity: 0.4;
-			}
-
-			.task-card.is-pending .task-btn {
-			background: #0d0d0d;
-			color: #333 !important;
-			border: 1px solid #151515 !important;
-			cursor: not-allowed;
-			pointer-events: none;
-			box-shadow: none;
-			}
-
-			/* ==========================================================================
-			3. REFERRAL MILESTONE SECTION
+			2. REFERRAL MILESTONE SECTION - [MOVED TO TOP]
 			========================================================================== */
 			.referral-section {
 			background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
 			border: 1px solid #1a1a1a;
 			border-radius: 20px;
 			padding: 20px 16px;
-			margin-bottom: 10px;
+			margin-bottom: 24px; /* নিচের সোশ্যাল লিস্ট থেকে গ্যাপ রাখার জন্য */
 			}
 
 			.ref-header {
@@ -313,6 +154,158 @@
 			margin-top: 8px;
 			}
 			.progress-stats span b { color: #2ec4b6; }
+
+			/* ==========================================================================
+			3. TASKS CONTAINER & CARDS
+			========================================================================== */
+			.tasks-container {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin-bottom: 10px;
+			}
+
+			.task-card {
+			position: relative;
+			background: #0a0a0a;
+			border: 1px solid #1a1a1a;
+			border-radius: 16px;
+			padding: 16px;
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			transition: border-color 0.3s ease;
+			}
+
+			.task-card-main {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			}
+
+			.brand-logo-frame {
+			width: 44px;
+			height: 44px;
+			border-radius: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.4rem;
+			}
+
+			.fb-theme { background: rgba(24, 119, 242, 0.1); color: #1877f2; border: 1px solid rgba(24, 119, 242, 0.15); }
+			.tt-theme { background: rgba(0, 0, 0, 1); color: #00f2fe; border: 1px solid #ff007f; }
+			.yt-theme { background: rgba(255, 0, 0, 0.1); color: #ff0000; border: 1px solid rgba(255, 0, 0, 0.15); }
+
+			.task-meta-info {
+			flex: 1;
+			padding: 0 14px;
+			}
+
+			.task-meta-info h2 {
+			margin: 0;
+			font-size: 0.9rem;
+			font-weight: 700;
+			letter-spacing: 0.5px;
+			color: #ffffff;
+			}
+
+			.task-meta-info p {
+			margin: 4px 0 0 0;
+			font-size: 0.7rem;
+			color: #555;
+			font-weight: 600;
+			}
+
+			.points-badge {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			font-size: 0.85rem;
+			font-weight: 800;
+			background: linear-gradient(135deg, #ffe066 0%, #f39c12 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			letter-spacing: 0.5px;
+			text-align: right;
+			}
+
+			.up-to-text {
+			font-size: 0.6rem;
+			font-weight: 700;
+			color: #555;
+			-webkit-text-fill-color: #555;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			margin-bottom: 2px;
+			}
+
+			.task-action-row {
+			display: flex;
+			gap: 10px;
+			width: 100%;
+			}
+
+			.task-btn {
+			flex: 1;
+			padding: 10px 12px;
+			font-size: 0.75rem;
+			font-weight: 700;
+			border-radius: 10px;
+			cursor: pointer;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 6px;
+			transition: all 0.2s ease;
+			}
+
+			.btn-details {
+			background: #111;
+			color: #aaa;
+			border: 1px solid #222;
+			}
+			.btn-details:active { background: #161616; transform: scale(0.97); }
+
+			.btn-submit {
+			background: #fff;
+			color: #000;
+			border: none;
+			}
+			.btn-submit:active { opacity: 0.8; transform: scale(0.97); }
+
+			/* CSS for Pending States (Triggered by JS later) */
+			.status-badge-pending {
+			position: absolute;
+			top: -8px;
+			left: 16px;
+			background: #f39c12;
+			color: #000;
+			font-size: 0.65rem;
+			font-weight: 800;
+			padding: 3px 10px;
+			border-radius: 20px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
+			}
+
+			.task-card.is-pending {
+			border-color: rgba(243, 156, 18, 0.2);
+			opacity: 0.4;
+			}
+
+			.task-card.is-pending .task-btn {
+			background: #0d0d0d;
+			color: #333 !important;
+			border: 1px solid #151515 !important;
+			cursor: not-allowed;
+			pointer-events: none;
+			box-shadow: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -327,130 +320,6 @@
 					<h1>Creator Rewards</h1>
 					<p>Monetize your content instantly</p>
 				</div>
-			</div>
-
-			<div class="tasks-container">
-
-				<div class="task-card">
-					<div class="task-card-main">
-						<div class="brand-logo-frame fb-theme">
-							<i class="fa-brands fa-facebook-f"></i>
-						</div>
-						<div class="task-meta-info">
-							<h2>FACEBOOK POST</h2>
-							<p>Status: Available</p>
-						</div>
-						<div class="points-badge">
-							<span class="up-to-text">Up To</span>
-							+15,000 PTS
-						</div>
-					</div>
-					<div class="task-action-row">
-						<button class="task-btn btn-details">
-							<i class="fa-solid fa-circle-info"></i> Task Details
-						</button>
-						<button class="task-btn btn-submit">
-							<i class="fa-solid fa-link"></i> Submit URL
-						</button>
-					</div>
-				</div>
-
-				<div class="task-card">
-					<div class="task-card-main">
-						<div class="brand-logo-frame fb-theme">
-							<i class="fa-solid fa-film"></i>
-						</div>
-						<div class="task-meta-info">
-							<h2>FACEBOOK REEL</h2>
-							<p>Status: Available</p>
-						</div>
-						<div class="points-badge">
-							<span class="up-to-text">Up To</span>
-							+25,000 PTS
-						</div>
-					</div>
-					<div class="task-action-row">
-						<button class="task-btn btn-details">
-							<i class="fa-solid fa-circle-info"></i> Task Details
-						</button>
-						<button class="task-btn btn-submit">
-							<i class="fa-solid fa-link"></i> Submit URL
-						</button>
-					</div>
-				</div>
-
-				<div class="task-card">
-					<div class="task-card-main">
-						<div class="brand-logo-frame tt-theme">
-							<i class="fa-brands fa-tiktok"></i>
-						</div>
-						<div class="task-meta-info">
-							<h2>TIKTOK VIDEO</h2>
-							<p>Status: Available</p>
-						</div>
-						<div class="points-badge">
-							<span class="up-to-text">Up To</span>
-							+25,000 PTS
-						</div>
-					</div>
-					<div class="task-action-row">
-						<button class="task-btn btn-details">
-							<i class="fa-solid fa-circle-info"></i> Task Details
-						</button>
-						<button class="task-btn btn-submit">
-							<i class="fa-solid fa-link"></i> Submit URL
-						</button>
-					</div>
-				</div>
-
-				<div class="task-card">
-					<div class="task-card-main">
-						<div class="brand-logo-frame yt-theme">
-							<i class="fa-solid fa-bolt"></i>
-						</div>
-						<div class="task-meta-info">
-							<h2>YOUTUBE SHORTS</h2>
-							<p>Status: Available</p>
-						</div>
-						<div class="points-badge">
-							<span class="up-to-text">Up To</span>
-							+25,000 PTS
-						</div>
-					</div>
-					<div class="task-action-row">
-						<button class="task-btn btn-details">
-							<i class="fa-solid fa-circle-info"></i> Task Details
-						</button>
-						<button class="task-btn btn-submit">
-							<i class="fa-solid fa-link"></i> Submit URL
-						</button>
-					</div>
-				</div>
-
-				<div class="task-card">
-					<div class="task-card-main">
-						<div class="brand-logo-frame yt-theme">
-							<i class="fa-brands fa-youtube"></i>
-						</div>
-						<div class="task-meta-info">
-							<h2>YOUTUBE LONG VIDEO</h2>
-							<p>Status: Available</p>
-						</div>
-						<div class="points-badge">
-							<span class="up-to-text">Up To</span>
-							+40,000 PTS
-						</div>
-					</div>
-					<div class="task-action-row">
-						<button class="task-btn btn-details">
-							<i class="fa-solid fa-circle-info"></i> Task Details
-						</button>
-						<button class="task-btn btn-submit">
-							<i class="fa-solid fa-link"></i> Submit URL
-						</button>
-					</div>
-				</div>
-
 			</div>
 
 			<div class="referral-section">
@@ -473,7 +342,141 @@
 				</div>
 			</div>
 
+			<div class="tasks-container">
+
+				<div class="task-card" id="task-fb-post">
+					<div class="task-card-main">
+						<div class="brand-logo-frame fb-theme">
+							<i class="fa-brands fa-facebook-f"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>FACEBOOK POST</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+15,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details" onclick="openDetails('fb-post')">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit" onclick="openSubmit('fb-post')">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card" id="task-fb-reel">
+					<div class="task-card-main">
+						<div class="brand-logo-frame fb-theme">
+							<i class="fa-solid fa-film"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>FACEBOOK REEL</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+25,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details" onclick="openDetails('fb-reel')">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit" onclick="openSubmit('fb-reel')">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card" id="task-tiktok">
+					<div class="task-card-main">
+						<div class="brand-logo-frame tt-theme">
+							<i class="fa-brands fa-tiktok"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>TIKTOK VIDEO</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+25,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details" onclick="openDetails('tiktok')">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit" onclick="openSubmit('tiktok')">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card" id="task-yt-shorts">
+					<div class="task-card-main">
+						<div class="brand-logo-frame yt-theme">
+							<i class="fa-solid fa-bolt"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>YOUTUBE SHORTS</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+25,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details" onclick="openDetails('yt-shorts')">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit" onclick="openSubmit('yt-shorts')">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+				<div class="task-card" id="task-yt-long">
+					<div class="task-card-main">
+						<div class="brand-logo-frame yt-theme">
+							<i class="fa-brands fa-youtube"></i>
+						</div>
+						<div class="task-meta-info">
+							<h2>YOUTUBE LONG VIDEO</h2>
+							<p>Status: Available</p>
+						</div>
+						<div class="points-badge">
+							<span class="up-to-text">Up To</span>
+							+40,000 PTS
+						</div>
+					</div>
+					<div class="task-action-row">
+						<button class="task-btn btn-details" onclick="openDetails('yt-long')">
+							<i class="fa-solid fa-circle-info"></i> Task Details
+						</button>
+						<button class="task-btn btn-submit" onclick="openSubmit('yt-long')">
+							<i class="fa-solid fa-link"></i> Submit URL
+						</button>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
 
+		<script>
+			// ফিউচারে পপ-আপ ইঞ্জিন ইন্টিগ্রেশনের জন্য ডেমো ফাংশন ট্রিগার
+			function openDetails(taskType) {
+			console.log("Opening details modal for: " + taskType);
+			}
+
+			function openSubmit(taskType) {
+			console.log("Opening submission modal for: " + taskType);
+			}
+		</script>
 	</body>
 </html>
