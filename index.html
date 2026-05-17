@@ -6,7 +6,11 @@
 		<title>Creator Rewards - Premium Dashboard</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 		<style>
-			* { box-sizing: border-box; }
+			* {
+			box-sizing: border-box;
+			/* [FIXED] পেজের সব এলিমেন্টের ডিফল্ট চারকোনা ট্যাপ কালার ইফেক্ট বন্ধ করা হলো */
+			-webkit-tap-highlight-color: transparent;
+			}
 
 			body {
 			background-color: #000;
@@ -32,10 +36,11 @@
 			display: flex;
 			flex-direction: column;
 			box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-			padding: 20px 16px;
+			/* [FIXED] নিচে পর্যাপ্ত জায়গা (80px) বাড়ানো হলো যেন লাস্ট কার্ড ফুল শো করে */
+			padding: 20px 16px 80px 16px;
 			}
 
-			/* Custom Premium Scrollbar for the Dashboard */
+			/* Custom Premium Scrollbar */
 			.phone-container::-webkit-scrollbar {
 			width: 4px;
 			}
@@ -60,14 +65,15 @@
 			font-size: 1.2rem;
 			text-decoration: none;
 			width: 40px;
+			outline: none;
 			transition: transform 0.1s;
 			}
-			.back-link:active { transform: scale(0.9); }
+			.back-link:active { transform: scale(0.95); }
 
 			.header-title-block {
 			flex: 1;
 			text-align: center;
-			margin-right: 40px; /* To perfectly center the title */
+			margin-right: 40px;
 			}
 
 			.header-title-block h1 {
@@ -75,7 +81,6 @@
 			font-size: 1.3rem;
 			font-weight: 850;
 			letter-spacing: 1px;
-			/* [CHANGED] ফ্রন্ট কালার ব্র্যান্ড গোল্ডেন-অরেঞ্জে সেট করা হলো */
 			color: #f39c12;
 			text-transform: uppercase;
 			}
@@ -88,14 +93,14 @@
 			}
 
 			/* ==========================================================================
-			2. REFERRAL MILESTONE SECTION - [MOVED TO TOP]
+			2. REFERRAL MILESTONE SECTION
 			========================================================================== */
 			.referral-section {
 			background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
 			border: 1px solid #1a1a1a;
 			border-radius: 20px;
 			padding: 20px 16px;
-			margin-bottom: 24px; /* নিচের সোশ্যাল লিস্ট থেকে গ্যাপ রাখার জন্য */
+			margin-bottom: 24px;
 			}
 
 			.ref-header {
@@ -162,7 +167,6 @@
 			display: flex;
 			flex-direction: column;
 			gap: 16px;
-			margin-bottom: 10px;
 			}
 
 			.task-card {
@@ -260,6 +264,8 @@
 			align-items: center;
 			justify-content: center;
 			gap: 6px;
+			outline: none;
+			border: none;
 			transition: all 0.2s ease;
 			}
 
@@ -270,42 +276,12 @@
 			}
 			.btn-details:active { background: #161616; transform: scale(0.97); }
 
+			/* [FIXED] SUBMIT URL বাটনের কালার সফট ব্যালেন্সড করা হলো যেন চোখে না লাগে */
 			.btn-submit {
-			background: #fff;
-			color: #000;
-			border: none;
+			background: #e0e0e0;
+			color: #111;
 			}
-			.btn-submit:active { opacity: 0.8; transform: scale(0.97); }
-
-			/* CSS for Pending States (Triggered by JS later) */
-			.status-badge-pending {
-			position: absolute;
-			top: -8px;
-			left: 16px;
-			background: #f39c12;
-			color: #000;
-			font-size: 0.65rem;
-			font-weight: 800;
-			padding: 3px 10px;
-			border-radius: 20px;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
-			box-shadow: 0 2px 10px rgba(243, 156, 18, 0.3);
-			}
-
-			.task-card.is-pending {
-			border-color: rgba(243, 156, 18, 0.2);
-			opacity: 0.4;
-			}
-
-			.task-card.is-pending .task-btn {
-			background: #0d0d0d;
-			color: #333 !important;
-			border: 1px solid #151515 !important;
-			cursor: not-allowed;
-			pointer-events: none;
-			box-shadow: none;
-			}
+			.btn-submit:active { background: #c8c8c8; transform: scale(0.97); }
 		</style>
 	</head>
 	<body>
@@ -469,7 +445,6 @@
 		</div>
 
 		<script>
-			// ফিউচারে পপ-আপ ইঞ্জিন ইন্টিগ্রেশনের জন্য ডেমো ফাংশন ট্রিগার
 			function openDetails(taskType) {
 			console.log("Opening details modal for: " + taskType);
 			}
